@@ -19,7 +19,9 @@ module.exports = {
         grey: "#707483",
         lightgrey: "#B1B3CF",
         darkgrey: "#3A3C42",
+        searchgrey: "#787878",
         black: "#040C04",
+        white: "#fff"
       },
     },
     fontFamily: {

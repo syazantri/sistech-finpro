@@ -20,6 +20,7 @@ module.exports = {
         lightgrey: "#B1B3CF",
         darkgrey: "#3A3C42",
         black: "#040C04",
+        white: "#FFFFFF",
       },
     },
     fontFamily: {

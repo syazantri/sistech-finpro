@@ -1,1 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+.footer-title {
+    @apply font-bold text-colors-white text-xl mt-8;
+}
+
+.footer-content {
+    @apply font-light text-colors-white text-sm mr-16 mt-4 mb-8;
+}
+
+.sidebar-category {
+    @apply flex text-colors-darkgrey font-medium text-base mt-5 p-1 pl-2 hover:cursor-pointer;
+}
+
+.sidebar-container {
+    @apply max-w-56 pr-6 shadow-md pb-24 h-full mb-2 rounded-lg pt-4;
+}
+
+.form-inputs {
+    @apply mt-6;
+}

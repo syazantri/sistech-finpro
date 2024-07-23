@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Header, Footer, Sidebar, CategoryList, Input, Dropdown, Form, Disclosure } from "../components";
+import { Header, Footer, Sidebar, CategoryList, Input, Dropdown, Form, Disclosure , CourseCard} from "../components";
 
 export default function Page() {
   const [isFormVisible, setIsFormVisible] = useState(false);
@@ -10,7 +10,7 @@ export default function Page() {
 
   return (
     <>
-      {/* <Header />
+      <Header />
       <div className="flex">
         <button
           onClick={toggleFormVisibility}
@@ -27,6 +27,7 @@ export default function Page() {
             inputChoices={["Kick-start my career", "Develop skills for my current role"]}
           />
           <CategoryList />
+          <CourseCard thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
         </div>
       </div>
       <Disclosure title="Basics of Java" description="This module teaches the basics of Java and begins by exploring some of the different data types such as integers, floating-point numbers, and strings. Continue with the module and learn how to use expressions in mathematical operations, store values in variables, and the many different ways to manipulate strings."
@@ -45,7 +46,7 @@ export default function Page() {
             </button>
           </div>
         </div>
-      )} */}
+      )}
     </>
   );
 }

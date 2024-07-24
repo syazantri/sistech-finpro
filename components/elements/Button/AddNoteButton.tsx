@@ -1,26 +1,11 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
-type AddNoteProps = {
-  children: string;
-  url: string;
-};
-
-function AddNote({ children, url }: AddNoteProps) {
-  return (
-    <div>
-      <a
-        href={url}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="addNoteBtn"
-      >
-        <button className="add-note-btn">
-          <img src="/images/pencil-square.png" />
-          <h4>{children}</h4>
-        </button>
-      </a>
-    </div>
-  );
+interface AddNoteButtonProps {
+  onClick: () => void;
 }
 
-export { AddNote };
+const AddNoteButton: React.FC<AddNoteButtonProps> = ({ onClick }) => {
+  return <button onClick={onClick}>Add Note</button>;
+};
+
+export default AddNoteButton;

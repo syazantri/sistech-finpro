@@ -1,5 +1,4 @@
 // Learning path card in learning path page
-import React from "react";
 
 type PathProps = {
   courseName: string;

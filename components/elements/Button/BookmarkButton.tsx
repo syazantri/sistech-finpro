@@ -1,22 +1,13 @@
-import React, { useState } from "react";
+import React from 'react';
 
-const BookmarkButton = () => {
-  const [isBookmark, setIsBookmark] = useState(false);
+interface BookmarkButtonProps {
+  isBookmark: boolean;
+}
 
-  const handleClick = () => {
-    setIsBookmark(!isBookmark);
-  };
-
+const BookmarkButton: React.FC<BookmarkButtonProps> = ({ isBookmark }) => {
   return (
-    <button onClick={handleClick}>
-      <img
-        src={
-          isBookmark
-            ? "/images/IsBookmark=True.png"
-            : "/images/IsBookmark=False.png"
-        }
-        alt="Bookmark Button"
-      />
+    <button className={`bookmark-button ${isBookmark ? 'bookmarked' : ''}`}>
+      {isBookmark ? 'Bookmarked' : 'Bookmark'}
     </button>
   );
 };

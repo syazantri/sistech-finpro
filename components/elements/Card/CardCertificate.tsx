@@ -1,4 +1,4 @@
-// Certificate Card in Dashboard
+import React from 'react';
 import BookmarkButton from "../Button/BookmarkButton";
 
 type CardCertificateProps = {
@@ -8,10 +8,6 @@ type CardCertificateProps = {
   companyName: string; // ex: google
   companyIcon: string;
 };
-
-interface BookmarkButtonProps {
-  isBookmark: boolean;
-}
 
 function CertificateCard({
   thumbnail,
@@ -24,7 +20,7 @@ function CertificateCard({
     <div className="card-course">
       <div className="course-content">
         <div className="course-thumbnail">
-          <img src={thumbnail}></img>
+          <img src={thumbnail} alt={`${courseName} Thumbnail`} />
           <div className="thumbnail-btn">
             <BookmarkButton isBookmark={true} />
           </div>
@@ -34,7 +30,7 @@ function CertificateCard({
           <h4>{certificateLabel}</h4>
         </div>
         <div className="company-info">
-          <img src={companyIcon}></img>
+          <img src={companyIcon} alt={`${companyName} Icon`} />
           <h4>{companyName}</h4>
         </div>
       </div>

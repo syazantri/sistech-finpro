@@ -71,7 +71,7 @@ const CoursePage: React.FC<CoursePageProps> = ({ course }) => {
                 <p className='font-medium text-colors-coursera text-base'>{course.courseName}</p>
             </div>
             <div className='justify-end flex gap-4'>
-                <BookmarkButton />
+                <BookmarkButton isBookmark={true}/>
                 <GetStartedButton url='/course'>Get Started</GetStartedButton>
             </div>
         </div>

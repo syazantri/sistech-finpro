@@ -1,7 +1,7 @@
 import { CareerBtn } from "../../elements";
 
 type WelcomeSectionProps = {
-  onClicked: Function;
+  onClicked: () => void; // Specify the function type here
 };
 
 export default function WelcomeSection({ onClicked }: WelcomeSectionProps) {

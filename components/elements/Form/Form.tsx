@@ -5,8 +5,8 @@ import { Dropdown } from "../Dropdown";
 import { SubmitFormBtn } from "../Button";
 
 type FormProps = {
-    onClicked: Function;
-  };
+    onClicked: () => void; // Updated type for the onClicked prop
+};
 
 function Form({ onClicked }: FormProps) {
   return (

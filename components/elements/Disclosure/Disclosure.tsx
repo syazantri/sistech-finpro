@@ -6,7 +6,7 @@ type DisclosureProps = {
   description: string;
   videoCount: string;
   readingCount: string;
-  keSyllabus: Function;
+  keSyllabus: () => void; // Updated type for keSyllabus
 };
 
 function Disclosure({

@@ -2,7 +2,17 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
-const categories = [
+// Define the type for categories
+type Category = {
+  name: string;
+  icon: string;
+  route: string;
+  iconWidth?: number;
+  iconHeight?: number;
+  hasDisclosure?: boolean;
+};
+
+const categories: Category[] = [
   { name: 'Home', icon: '/images/icon-home.png', route: '/' },
   { name: 'Explore', icon: '/images/icon-explore.png', route: '/explore' },
   { name: 'Course', icon: '/images/icon-course.png', route: '/course', hasDisclosure: true },
@@ -28,18 +38,18 @@ function Sidebar() {
     localStorage.setItem('sidebarOpen', JSON.stringify(sidebarOpen));
   }, [sidebarOpen]);
 
-
-  const handleCategoryClick = (category) => {
+  const handleCategoryClick = (category: Category) => {
     setActiveCategory(category.route);
     router.push(category.route);
   };
 
-  const handleDisclosureClick = (e) => {
+  const handleDisclosureClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     setDisclosureOpen(!disclosureOpen);
   };
 
-  const handleLearningPathClick = (e) => {
+  const handleLearningPathClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    e.stopPropagation(); // prevent event bubbling
     router.push('/learning-path');
     setDisclosureOpen(true);
   };
@@ -62,7 +72,6 @@ function Sidebar() {
     };
   }, [sidebarOpen, router.events]);
 
-
   return (
     <div className={`sidebar-container ${sidebarOpen ? 'w-64' : 'w-20'} transition-width duration-300`}>
       <div className="flex justify-between items-center p-4">
@@ -78,54 +87,45 @@ function Sidebar() {
       </div>
       {sidebarOpen && (
         <div>
-      {categories.map((category) => (
-        
-        <div key={category.name} className="mb-4">
-          <div
-            className={`ml-4 sidebar-category flex items-center gap-3 pt-8 ${activeCategory === category.route ? 'bg-colors-coursera/20 rounded-xl h-10' : ''}`}
-            onClick={() => handleCategoryClick(category)}
-          >
-            
-            <div className="sidebar-icon">
-              <Image
-                src={category.icon}
-                alt={`Icon ${category.name}`}
-                width={category.iconWidth || 30}
-                height={category.iconHeight || 30}
-              />
-            </div>
-            
-              <div className="sidebar-title flex items-center justify-between w-full">
-                {category.name}
-                {category.hasDisclosure && (
-                  <div className={`transform transition-transform ${disclosureOpen ? 'rotate-180' : ''}`} onClick={handleDisclosureClick}>
-                    <Image
-                      src="/images/sidebar-disclosure.png"
-                      alt="Disclosure Icon"
-                      width={15}
-                      height={15}
-                    />
-                  </div>
-                )}
-                
+          {categories.map((category) => (
+            <div key={category.name} className="mb-4">
+              <div
+                className={`ml-4 sidebar-category flex items-center gap-3 pt-8 ${activeCategory === category.route ? 'bg-colors-coursera/20 rounded-xl h-10' : ''}`}
+                onClick={() => handleCategoryClick(category)}
+              >
+                <div className="sidebar-icon">
+                  <Image
+                    src={category.icon}
+                    alt={`Icon ${category.name}`}
+                    width={category.iconWidth || 30}
+                    height={category.iconHeight || 30}
+                  />
+                </div>
+                <div className="sidebar-title flex items-center justify-between w-full">
+                  {category.name}
+                  {category.hasDisclosure && (
+                    <div className={`transform transition-transform ${disclosureOpen ? 'rotate-180' : ''}`} onClick={handleDisclosureClick}>
+                      <Image
+                        src="/images/sidebar-disclosure.png"
+                        alt="Disclosure Icon"
+                        width={15}
+                        height={15}
+                      />
+                    </div>
+                  )}
+                </div>
               </div>
-            
-
-          </div>
-          {category.hasDisclosure && disclosureOpen && sidebarOpen && (
-            <div className="ml-12 mt-2 text-colors-darkgrey text-base font-bold" onClick={handleLearningPathClick}>
-              Learning Path
+              {category.hasDisclosure && disclosureOpen && sidebarOpen && (
+                <div className="ml-12 mt-2 text-colors-darkgrey text-base font-bold" onClick={handleLearningPathClick}>
+                  Learning Path
+                </div>
+              )}
             </div>
-          )}
+          ))}
         </div>
-     
-      ))}
+      )}
     </div>
-    )}
-    </div>
-
   );
-  
 }
 
 export { Sidebar };

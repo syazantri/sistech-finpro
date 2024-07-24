@@ -9,7 +9,7 @@ function GetStartedDetail({ children, url }: GetStartedCourseButtonProps) {
   return (
     <div>
       <a href={url} target="_blank" rel="noopener noreferrer">
-        <button className="get-started-btn">{children}</button>
+        <button className="get-started-detail-btn">{children}</button>
       </a>
     </div>
   );

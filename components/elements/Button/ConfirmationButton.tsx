@@ -2,25 +2,25 @@ import React from "react";
 
 type ConfirmationButtonProps = {
   yesText: string;
-  yesLink: string;
   noText: string;
-  noLink: string;
+  onClickYes: () => void;
+  onClickNo: () => void;
 };
 
 function ConfirmBtn({
   yesText,
-  yesLink,
+  onClickYes,
   noText,
-  noLink,
+  onClickNo,
 }: ConfirmationButtonProps) {
   return (
     <div className="confirm-btn">
-      <a href={yesLink} target="_blank" rel="noopener noreferrer">
-        <button className="confirmYes-btn">{yesText}</button>
-      </a>
-      <a href={noLink} target="_blank" rel="noopener noreferrer">
-        <button className="confirmNo-btn">{noText}</button>
-      </a>
+     
+        <button className="confirmYes-btn" onClick={onClickYes}>{yesText}</button>
+ 
+    
+        <button className="confirmNo-btn" onClick={onClickNo}>{noText}</button>
+
     </div>
   );
 }

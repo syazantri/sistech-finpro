@@ -1,16 +1,19 @@
-import React, { ReactNode } from "react";
+import React from "react";
 
-type SetCareerBtnProps = {
+type CareerBtnProps = {
   children: string;
-  url: string;
+  onClick: () => void;
 };
 
-function CareerBtn({ children, url }: SetCareerBtnProps) {
+function CareerBtn({ children, onClick }: CareerBtnProps) {
   return (
     <div>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <button className="career-btn">{children}</button>
-      </a>
+      <button
+        onClick={onClick}
+        className="bg-colors-coursera rounded-lg text-colors-white font-semibold text-lg p-2 pr-8 pl-8"
+      >
+        {children}
+      </button>
     </div>
   );
 }

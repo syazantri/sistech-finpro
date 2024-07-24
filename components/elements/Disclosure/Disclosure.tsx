@@ -6,6 +6,7 @@ type DisclosureProps = {
   description: string;
   videoCount: string;
   readingCount: string;
+  keSyllabus: Function;
 };
 
 function Disclosure({
@@ -13,6 +14,7 @@ function Disclosure({
   description,
   videoCount,
   readingCount,
+  keSyllabus,
 }: DisclosureProps) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -21,7 +23,7 @@ function Disclosure({
   };
 
   return (
-    <div className="justify-center flex flex-col items-center cursor-pointer ml-24 mr-24">
+    <div className="justify-center flex flex-col items-center cursor-pointer mr-24 pt-4 max-w-11/12">
       <div
         className="disclosure-title font-bold text-xl text-colors-white bg-colors-lightblue w-full pt-3 pb-3 flex flex-row justify-between"
         onClick={toggleDisclosure}
@@ -38,7 +40,7 @@ function Disclosure({
         />
       </div>
       {isOpen && (
-        <div className="disclosure-content bg-colors-white rounded-lg shadow-md pl-4 p-4">
+        <div className="disclosure-content bg-colors-white rounded-lg shadow-md pl-4 p-4 w-full">
           <p className="disclosure-desc text-sm font-light text-colors-black">
             {description}
           </p>
@@ -54,14 +56,11 @@ function Disclosure({
               {videoCount} videos, {readingCount} reading
             </p>
           </div>
-          <div className="font-semibold text-base text-colors-coursera">
+          <div className="font-semibold text-base text-colors-coursera" onClick={keSyllabus}>
             See More
           </div>
         </div>
       )}
-      <p className="text-colors-black font-medium text-sm text-center justify-center max-w-28 items-center mt-2">
-        {title}
-      </p>
     </div>
   );
 }

@@ -19,7 +19,7 @@ const categories = [
       <div className="grid grid-cols-2 grid-cols-5">
         {categories.map((category) => (
           <div key={category.title}>
-            <div className="ml-6 items-center gap-3">
+            <div className="ml-3 items-center ">
               <Category title={category.title} imageUrl={category.imageUrl}/>
               </div>
             </div>

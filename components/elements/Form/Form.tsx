@@ -2,11 +2,15 @@ import Image from "next/image";
 import { useState } from "react";
 import { Input } from "../Input";
 import { Dropdown } from "../Dropdown";
+import { SubmitFormBtn } from "../Button";
 
-function Form() {
+type FormProps = {
+    onClicked: Function;
+  };
+
+function Form({ onClicked }: FormProps) {
   return (
     <div className="form-container items-center bg-colors-white w-full h-full rounded-lg gap-2">
-        <p className="font-semibold text-colors-coursera text-lg w-full text-end justify-end">Set up Later</p>
         <h2 className="font-bold text-colors-deepsea text-3xl">Help us personalize your experience🚀</h2>
         <p className="font-light text-colors-darkgrey text-lg">Fill out the information below to receive recommendations for courses that fit your interests and goals. Coursera will never share this personal information with third parties.</p>
         <div className="">
@@ -28,6 +32,9 @@ function Form() {
             </div>
             <div className="form-inputs">
                 <Input title="New Skills of Interest" placeholder="eg. Research and Design, Python" imageUrl="/images/icon-form-search.png"/>
+            </div>
+            <div className="submit-button-form mt-8 flex flex-1 justify-center">
+                <SubmitFormBtn children="Submit" onClick={onClicked}/>
             </div>
         </div>
     </div>

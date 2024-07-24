@@ -2,15 +2,13 @@ import React, { ReactNode } from "react";
 
 type SubmitFormBtnProps = {
   children: string;
-  url: string;
+  onClick: () => void;
 };
 
-function SubmitFormBtn({ children, url }: SubmitFormBtnProps) {
+function SubmitFormBtn({ children, onClick }: SubmitFormBtnProps) {
   return (
     <div>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <button className="submit-btn">{children}</button>
-      </a>
+        <button className="submit-btn" onClick={onClick}>{children}</button>
     </div>
   );
 }

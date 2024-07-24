@@ -10,7 +10,7 @@ function Category({
   title,
 }: CategoryProps) {
   return (
-    <div className="justify-center flex flex-col items-center cursor-pointer">
+    <div className="flex flex-col items-center cursor-pointer mt-2">
     <Image
       src={imageUrl}
       alt={title}

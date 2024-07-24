@@ -1,60 +1,61 @@
 import Image from "next/image";
 import { useState } from "react";
-import { Header, Footer, Sidebar, CategoryList, Input, Dropdown, Form, Disclosure , CourseCard, ConfirmationModal, CongratulationModal} from "../../components";
+import { Header, Footer, Sidebar, CategoryList, Input, Dropdown, Form, Disclosure, CourseCard, ConfirmationModal, CongratulationModal } from "../../components";
 import { GetServerSideProps } from "next";
 import { useRouter } from "next/router";
 
 type Syllabus = {
-    syllabusId: number;
-    syllabusName: string;
-    syllabusContent: string;
-    learningObjectives: string[];
-    materials: {
-      materialsId: number;
-      materialsName: string;
-      videoUrl: string;
-    }[];
-  };
+  syllabusId: number;
+  syllabusName: string;
+  syllabusContent: string;
+  learningObjectives: string[];
+  materials: {
+    materialsId: number;
+    materialsName: string;
+    videoUrl: string;
+  }[];
+};
 
 type Course = {
-    courseId: number;
-    courseName: string;
-    courseContent: string;
-    imgUrl: string;
-    instructorName: string;
-    instructorTitle: string;
-    instructorAvatar: string;
-    syllabuses: Syllabus[];
+  courseId: number;
+  courseName: string;
+  courseContent: string;
+  imgUrl: string;
+  instructorName: string;
+  instructorTitle: string;
+  instructorAvatar: string;
+  syllabuses: Syllabus[];
+};
+
+type CoursePageProps = {
+  course?: Course;  // Make it optional if not always provided
+  courses: Course[];
+  courses2: Course[];  // Add courses2 here
+};
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  // const { courseId } = context.params!;
+  const res = await fetch(`https://sistech-finpro-db.vercel.app/api/data`);
+  const data = await res.json();
+  // const course = data.data[0].courses.find((course: Course) => course.courseId === parseInt(courseId as string));
+  const courses = data.data[0].courses;
+  const courses2 = data.data[1].courses;
+
+  return {
+    props: {
+      courses2,
+      courses,
+    },
   };
-  
-  type CoursePageProps = {
-    course: Course;
-    courses: Course[];
-  };
-  
-  export const getServerSideProps: GetServerSideProps = async (context) => {
-    // const { courseId } = context.params!;
-    const res = await fetch(`https://sistech-finpro-db.vercel.app/api/data`);
-    const data = await res.json();
-    // const course = data.data[0].courses.find((course: Course) => course.courseId === parseInt(courseId as string));
-    const courses = data.data[0].courses;
-    const courses2 = data.data[1].courses;
-  
-    return {
-      props: {
-        courses2,
-        courses,
-      },
-    };
-  };
+};
 
 export default function CourseForYouPage({ courses, course, courses2 }: CoursePageProps) {
-    const router = useRouter();
+  const router = useRouter();
 
   const handleKeCourse = (courseId: number) => {
     router.push(`/course/${courseId}`);
   };
-  
+
   return (
     <>
       <Header />
@@ -71,7 +72,7 @@ export default function CourseForYouPage({ courses, course, courses2 }: CoursePa
                 thumbnail={course.imgUrl}
                 courseName={course.courseName}
                 courseLabel='course'
-                companyName={course.instructorName} 
+                companyName={course.instructorName}
                 companyIcon='/images/instructor-avatar-1.png'
                 keCourse={() => handleKeCourse(course.courseId)}
               />
@@ -84,8 +85,9 @@ export default function CourseForYouPage({ courses, course, courses2 }: CoursePa
                 thumbnail={course.imgUrl}
                 courseName={course.courseName}
                 courseLabel={course.courseName}
-                companyName={course.instructorName} // Assuming companyName is instructorName
-                companyIcon={course.instructorAvatar} // Assuming companyIcon is instructorAvatar
+                companyName={course.instructorName}
+                companyIcon={course.instructorAvatar}
+                keCourse={() => handleKeCourse(course.courseId)}
               />
             ))}
           </div>

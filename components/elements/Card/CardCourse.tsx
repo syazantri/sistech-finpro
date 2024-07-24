@@ -1,4 +1,4 @@
-// Course Card in Dashboard
+import React from 'react';
 import BookmarkButton from "../Button/BookmarkButton";
 
 type CardCourseProps = {
@@ -7,12 +7,8 @@ type CardCourseProps = {
   courseLabel: string; // ex: course, certificate, degrees
   companyName: string; // ex: google
   companyIcon: string;
-  keCourse: Function;
+  keCourse: () => void;
 };
-
-interface BookmarkButtonProps {
-  isBookmark: boolean;
-}
 
 function CourseCard({
   thumbnail,
@@ -26,7 +22,7 @@ function CourseCard({
     <div className="card-course cursor-pointer" onClick={keCourse}>
       <div className="course-content">
         <div className="course-thumbnail">
-          <img src={thumbnail}></img>
+          <img src={thumbnail} alt={`${courseName} Thumbnail`} />
           <div className="thumbnail-btn">
             <BookmarkButton isBookmark={true} />
           </div>
@@ -36,7 +32,7 @@ function CourseCard({
           <h4>{courseLabel}</h4>
         </div>
         <div className="company-info">
-          <img width='23' height='23' src={companyIcon}></img>
+          <img width="23" height="23" src={companyIcon} alt={`${companyName} Icon`} />
           <h4>{companyName}</h4>
         </div>
       </div>
@@ -46,4 +42,3 @@ function CourseCard({
 
 export type { CardCourseProps };
 export { CourseCard };
-export default BookmarkButton;

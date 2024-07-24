@@ -61,9 +61,9 @@ export default function DoneCareer() {
         </div>
         <h4 className="font-medium text-xl text-colors-black mt-6">Course For You</h4>
           <div className="flex gap-3 mt-3">
-          <CourseCard thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
-          <CourseCard thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
-          <CourseCard thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
+          <CourseCard keCourse={handleButtonClick} thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
+          <CourseCard keCourse={handleButtonClick} thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
+          <CourseCard keCourse={handleButtonClick} thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
           </div>
           <div className="mt-4 justify-center flex flex-1">
             <ShowBtn url="/course/course-for-you">Show 9 more</ShowBtn>
@@ -74,9 +74,9 @@ export default function DoneCareer() {
       </div>
           <p className="ml-12 mt-4 font-medium text-xl text-colors-black">Most Popular Courses</p>
           <div className="ml-12 mt-4 flex gap-3">
-          <CourseCard thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
-          <CourseCard thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
-          <CourseCard thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
+          <CourseCard keCourse={handleButtonClick} thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
+          <CourseCard keCourse={handleButtonClick} thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
+          <CourseCard keCourse={handleButtonClick} thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
           </div>
         </div>
       </div>

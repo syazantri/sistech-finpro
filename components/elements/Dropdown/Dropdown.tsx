@@ -11,7 +11,7 @@ function Dropdown({ title, placeholder, inputChoices }: DropdownProps) {
   const [inputValue, setInputValue] = useState('');
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
-  const handleInputChange = (event) => {
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(event.target.value);
   };
 
@@ -19,7 +19,7 @@ function Dropdown({ title, placeholder, inputChoices }: DropdownProps) {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const handleOptionClick = (choice) => {
+  const handleOptionClick = (choice: string) => {
     setInputValue(choice);
     setIsDropdownOpen(false);
   };

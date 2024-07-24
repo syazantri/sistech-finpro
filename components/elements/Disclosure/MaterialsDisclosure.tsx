@@ -90,7 +90,7 @@ function MaterialsDisclosure({
           </div>
           </div>
           <div className="justify-end">
-            <GetStartedDetail children="Get Started" url="/course"/>
+            <GetStartedDetail url="/course">Get Started</GetStartedDetail>
           </div>
           
         </div>

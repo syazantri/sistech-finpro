@@ -16,7 +16,7 @@ function CongratulationModal({ onClickedNo }: ConfirmationModalProps) {
         <div  className="justify-center flex flex-1"><Image src="/images/image 19.png" alt="Softeng Image" width="232" height="162"/></div>
         
         <p className="font-bold text-colors-deepsea text-center text-xl mt-3">Software Engineering Trainee</p>
-        <p className="font-light text-colors-black text-lg mt-3 text-sm">If this isn't quite right, you can go back and update your preferences.  Happy learning!</p>
+        <p className="font-light text-colors-black text-lg mt-3 text-sm">If this isnt quite right, you can go back and update your preferences.  Happy learning!</p>
         <div className="">
             <div className="submit-button-form mt-8 flex flex-1 justify-center">
                 <ResultBtn editText="Edit Form" saveText="Save" onClickNo={onClickedNo} saveLink="/done-career"/>

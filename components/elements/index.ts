@@ -8,3 +8,5 @@ export * from "./Form";
 export * from "./Card";
 export * from "./Button";
 export * from "./Disclosure";
+export * from "./ConfirmationModal";
+export * from "./CongratulationModal";

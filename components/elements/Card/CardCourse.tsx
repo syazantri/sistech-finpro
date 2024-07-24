@@ -7,6 +7,7 @@ type CardCourseProps = {
   courseLabel: string; // ex: course, certificate, degrees
   companyName: string; // ex: google
   companyIcon: string;
+  keCourse: Function;
 };
 
 interface BookmarkButtonProps {
@@ -19,9 +20,10 @@ function CourseCard({
   courseLabel,
   companyName,
   companyIcon,
+  keCourse,
 }: CardCourseProps) {
   return (
-    <div className="card-course">
+    <div className="card-course cursor-pointer" onClick={keCourse}>
       <div className="course-content">
         <div className="course-thumbnail">
           <img src={thumbnail}></img>
@@ -34,7 +36,7 @@ function CourseCard({
           <h4>{courseLabel}</h4>
         </div>
         <div className="company-info">
-          <img src={companyIcon}></img>
+          <img width='23' height='23' src={companyIcon}></img>
           <h4>{companyName}</h4>
         </div>
       </div>

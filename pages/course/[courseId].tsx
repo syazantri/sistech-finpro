@@ -72,7 +72,7 @@ const CoursePage: React.FC<CoursePageProps> = ({ course }) => {
             </div>
             <div className='justify-end flex gap-4'>
                 <BookmarkButton />
-                <GetStartedButton children='Get Started' url='/course'/>
+                <GetStartedButton url='/course'>Get Started</GetStartedButton>
             </div>
         </div>
           <h3 className="font-bold text-2xl text-colors-deepsea">About This Course</h3>

@@ -56,7 +56,7 @@ export default function DoneCareer() {
                 </div>
             </div>
             <div className="button-lp-section justify-end ml-64">
-                <ViewButton children="View" url="/course/learning-path"/>
+                <ViewButton url="/course/learning-path">View</ViewButton>
             </div>
         </div>
         <h4 className="font-medium text-xl text-colors-black mt-6">Course For You</h4>
@@ -66,7 +66,7 @@ export default function DoneCareer() {
           <CourseCard thumbnail={"/images/dumbthumbnail.png"} courseName={"Nama Course"} courseLabel={"Nama Course"} companyName={"zenius"} companyIcon={"/images/logo-coursera.png"} />
           </div>
           <div className="mt-4 justify-center flex flex-1">
-            <ShowBtn children="Show 9 more" url="/course/course-for-you"/>
+            <ShowBtn url="/course/course-for-you">Show 9 more</ShowBtn>
           </div>
       </div>
       <div className="category-list mt-6">

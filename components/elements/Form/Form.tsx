@@ -34,7 +34,7 @@ function Form({ onClicked }: FormProps) {
                 <Input title="New Skills of Interest" placeholder="eg. Research and Design, Python" imageUrl="/images/icon-form-search.png"/>
             </div>
             <div className="submit-button-form mt-8 flex flex-1 justify-center">
-                <SubmitFormBtn children="Submit" onClick={onClicked}/>
+                <SubmitFormBtn onClick={onClicked}>Submit</SubmitFormBtn>
             </div>
         </div>
     </div>
